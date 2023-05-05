@@ -1574,6 +1574,18 @@
     omit.js "^2.0.2"
     union-tool "^0.1.2"
 
+"@union-design/side-nav@^0.0.4":
+  version "0.0.4"
+  resolved "https://npm.coloseo.online/@union-design%2fside-nav/-/side-nav-0.0.4.tgz#260deb29d9f97534f1f7fb2616972fce2c5516df"
+  integrity sha512-4XPGCEh3fzd/mKkiXmlsVAZRwZVYzdPpR+8U3WLyHYf8NCZhzJzcTN7qSvpTwJbsv2N6O66DifETmbRlP3oREw==
+  dependencies:
+    "@union-design/base-component" "^0.0.4"
+    "@union-design/icon" "^0.0.4"
+    "@union-design/style" "^0.0.4"
+    classnames "^2.3.2"
+    omit.js "^2.0.2"
+    union-tool "^0.1.2"
+
 "@union-design/style@^0.0.4":
   version "0.0.4"
   resolved "https://npm.coloseo.online/@union-design%2fstyle/-/style-0.0.4.tgz#f2c817b35e0cbbeee8e36fe04ee075bf7f25f753"

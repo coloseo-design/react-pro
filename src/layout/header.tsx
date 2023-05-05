@@ -5,6 +5,8 @@ import Header from '@union-design/header';
 import Dropdown from '@union-design/dropdown';
 import '@union-design/header/lib/styles/index.css';
 import '@union-design/dropdown/lib/styles/index.css';
+import '@union-design/top-nav/lib/styles/index.css';
+import UserPng from '../images/avatar-line.png';
 import './index.css';
 
 export const MainHeader = () => {
@@ -56,11 +58,96 @@ export const MainHeader = () => {
           setDown1(!v);
         }}
       >
-        你好
+        <img src={UserPng} alt="" />
+        欢迎您
         <Icon type={down1 ? 'down2-line' : 'up2-line'} />
       </Dropdown>
     </div>,
   ];
+  type Data = { id: string; name: string; desc?: string; list?: Data[] };
+  const data: Data[] = [
+    {
+      id: '1',
+      name: '首页',
+    },
+    {
+      id: '2',
+      name: '设计规范',
+    },
+    {
+      id: '3',
+      name: 'web端组件库',
+    },
+    {
+      id: '4',
+      name: '移动端组件库',
+    },
+    {
+      id: '5',
+      name: '页面模板pro',
+      list: [
+        {
+          id: '78',
+          name: 'React Pro',
+          list: [
+            {
+              id: '781',
+              name: '如何使用说明',
+            },
+            {
+              id: '782',
+              name: '演示页面',
+            },
+          ],
+        },
+        {
+          id: '79',
+          name: 'Vue2.0 Pro',
+          list: [
+            {
+              id: '791',
+              name: '如何使用说明',
+            },
+            {
+              id: '792',
+              name: '演示页面',
+            },
+          ],
+        },
+        {
+          id: '68',
+          name: 'JS Pro',
+          list: [
+            {
+              id: '681',
+              name: '如何使用说明',
+            },
+            {
+              id: '682',
+              name: '演示页面',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: '6',
+      name: '图表库',
+    },
+    {
+      id: '7',
+      name: '资源与下载',
+    },
+  ];
+
+  const navProps = {
+    data,
+    mode: 'expand' as any,
+    keyExtractor: (i: Data) => `${i.id}`,
+    nameExtractor: (i: Data) => i.name,
+    childrenExtractor: (i: Data) => i.list,
+    onChangeSelectedKey: (key: string, data1: any) => console.log('topnav md onChangeSelectedKeys:', key, data1),
+  };
   return (
     <div>
       <Header
@@ -70,6 +157,8 @@ export const MainHeader = () => {
         }}
         type="propaganda"
         menus={menus}
+        navProps={navProps}
+        showNav
       />
     </div>
   );
