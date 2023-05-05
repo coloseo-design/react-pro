@@ -1,19 +1,64 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react';
-// import { Icon } from 'union-design';
+import React, { useState } from 'react';
 import Icon from '@union-design/icon';
-import '@union-design/header/lib/styles/index.css';
 import Header from '@union-design/header';
+import Dropdown from '@union-design/dropdown';
+import '@union-design/header/lib/styles/index.css';
+import '@union-design/dropdown/lib/styles/index.css';
+import './index.css';
 
 export const MainHeader = () => {
+  const [down, setDown] = useState(true);
+  const [down1, setDown1] = useState(true);
+  const overlay = (
+    <>
+      <div>
+        <Icon type="user-line" />
+        个人信息
+      </div>
+      <div>
+        <Icon type="setting-line" />
+        个人设置
+      </div>
+      <div>
+        <Icon type="logout-line" />
+        退出登录
+      </div>
+      <div>
+        <Icon type="news-line" />
+        我的消息
+      </div>
+    </>
+  );
   const menus = [
-    <div key="3">
-      版本切换
-      <Icon type="down2-line" />
+    <div key="3" className="currentMenu">
+      <Dropdown
+        overlay={
+          <div>1.x</div>
+        }
+        trigger={['click']}
+        overlayClassName="dropHeader"
+        onVisibleChange={(v: boolean) => {
+          setDown(!v);
+        }}
+      >
+        <Icon type="menu-line" />
+        版本切换
+        <Icon type={down ? 'down2-line' : 'up2-line'} />
+      </Dropdown>
     </div>,
-    <div key="4">
-      你好
-      <Icon type="down2-line" />
+    <div key="4" className="currentMenu">
+      <Dropdown
+        overlayClassName="dropHeader"
+        trigger={['click']}
+        overlay={overlay}
+        onVisibleChange={(v: boolean) => {
+          setDown1(!v);
+        }}
+      >
+        你好
+        <Icon type={down1 ? 'down2-line' : 'up2-line'} />
+      </Dropdown>
     </div>,
   ];
   return (
