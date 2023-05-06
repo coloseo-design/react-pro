@@ -7,31 +7,11 @@ import '@union-design/header/lib/styles/index.css';
 import '@union-design/dropdown/lib/styles/index.css';
 import '@union-design/top-nav/lib/styles/index.css';
 import UserPng from '../images/avatar-line.png';
+import UserDrop from '../user-drop';
 import './index.css';
 
 export const MainHeader = () => {
   const [down, setDown] = useState(true);
-  const [down1, setDown1] = useState(true);
-  const overlay = (
-    <>
-      <div>
-        <Icon type="user-line" />
-        个人信息
-      </div>
-      <div>
-        <Icon type="setting-line" />
-        个人设置
-      </div>
-      <div>
-        <Icon type="logout-line" />
-        退出登录
-      </div>
-      <div>
-        <Icon type="news-line" />
-        我的消息
-      </div>
-    </>
-  );
   const menus = [
     <div key="3" className="currentMenu">
       <Dropdown
@@ -44,24 +24,16 @@ export const MainHeader = () => {
           setDown(!v);
         }}
       >
-        <Icon type="menu-line" />
-        版本切换
-        <Icon type={down ? 'down2-line' : 'up2-line'} />
+        <Icon style={{ margin: '0px 8px 0px 0px' }} type="menu-line" />
+        <span>版本切换</span>
+        <Icon style={{ fontSize: 14 }} type={down ? 'down2-line' : 'up2-line'} />
       </Dropdown>
     </div>,
     <div key="4" className="currentMenu">
-      <Dropdown
-        overlayClassName="dropHeader"
-        trigger={['click']}
-        overlay={overlay}
-        onVisibleChange={(v: boolean) => {
-          setDown1(!v);
-        }}
-      >
+      <UserDrop>
         <img src={UserPng} alt="" />
         欢迎您
-        <Icon type={down1 ? 'down2-line' : 'up2-line'} />
-      </Dropdown>
+      </UserDrop>
     </div>,
   ];
   type Data = { id: string; name: string; desc?: string; list?: Data[] };
@@ -153,7 +125,7 @@ export const MainHeader = () => {
       <Header
         title="联通设计系统"
         search={{
-          placeholder: '输入查询内容',
+          placeholder: '请输入内容查询',
         }}
         type="propaganda"
         menus={menus}

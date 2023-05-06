@@ -5601,6 +5601,11 @@ hex-color-regex@^1.1.0:
   resolved "https://npm.coloseo.online/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
+highlight-for-react@^1.0.5:
+  version "1.0.5"
+  resolved "https://npm.coloseo.online/highlight-for-react/-/highlight-for-react-1.0.5.tgz#5f1acd51946c79a4dfc5e86f7d35e9c227b7a78b"
+  integrity sha512-SZpck7e4SOs8ufuRatorEk65iES8TOU6NvWKtKWa63QDJCAfea7bT5p0T+4+6yy4FZiMzDAC9LMTuA4v+PcFvA==
+
 hmac-drbg@^1.0.1:
   version "1.0.1"
   resolved "https://npm.coloseo.online/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"
