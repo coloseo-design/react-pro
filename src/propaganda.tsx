@@ -29,9 +29,10 @@ const Propaganda = () => {
         title="宣传类"
         secondTitle="1.宣传类-纯色背景头部"
         headerProps={{
-          type: 'propaganda',
+          size: 'lg',
           search: {
             placeholder: '输入查询内容',
+            type: 'primary',
           },
           title: '中国联通设计系统',
           menus: menus1,
@@ -42,9 +43,10 @@ const Propaganda = () => {
         title=""
         secondTitle="2.宣传类-带背景头部"
         headerProps={{
-          type: 'propaganda',
+          size: 'lg',
           search: {
             placeholder: '输入查询内容',
+            type: 'primary',
           },
           title: '中国联通设计系统',
           menus: menus1,

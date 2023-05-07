@@ -30,13 +30,6 @@
   margin-right: 8px;
 }
 
-.uni-header-search {
-  display: block;
-}
-.uni-header-left-logo  {
-  margin-right: 16px !important;
-}
-
 .layoutContent {
   border-left: 16px solid rgb(239, 239, 239);
   flex: 1;

@@ -126,11 +126,11 @@ export const MainHeader = () => {
         title="联通设计系统"
         search={{
           placeholder: '请输入内容查询',
+          type: 'primary',
         }}
-        type="propaganda"
+        size="lg"
         menus={menus}
         navProps={navProps}
-        showNav
       />
     </div>
   );

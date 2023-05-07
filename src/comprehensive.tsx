@@ -48,9 +48,10 @@ const Comprehensive = () => {
         title="综合类"
         secondTitle="1.综合类-纯色背景头部"
         headerProps={{
-          type: 'comprehensive',
+          size: 'lg',
           search: {
             placeholder: '输入查询内容',
+            type: 'primary',
           },
           title: '中国联通设计系统',
           menus: menus1,
@@ -62,8 +63,9 @@ const Comprehensive = () => {
         title=""
         secondTitle="2.综合类-带背景头部"
         headerProps={{
-          type: 'comprehensive',
+          size: 'lg',
           search: {
+            type: 'primary',
             placeholder: '输入查询内容',
           },
           title: '中国联通设计系统',
