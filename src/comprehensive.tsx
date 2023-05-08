@@ -1,9 +1,13 @@
+/* eslint-disable no-console */
 import React from 'react';
 import Icon from '@union-design/icon';
 import UserDrop from './user-drop';
 import AvatarPng from './images/avatar.png';
 import Copy from './copy';
-import { navProps } from './business/index';
+import { navProps, options } from './business/index';
+import {
+  menusCode1, optionsCode, navPropsCode, topMenusCodes,
+} from './code';
 
 const Comprehensive = () => {
   const menus1 = [
@@ -58,6 +62,25 @@ const Comprehensive = () => {
           navProps,
           topMenus,
         }}
+        code={`
+export default () => {
+  ${menusCode1}
+  ${navPropsCode}
+  ${topMenusCodes}
+  return (
+    <Header
+      size="lg"
+      title="中国联通设计系统"
+      menus={menus}
+      search={{
+        type: 'primary',
+        placeholder: '输入查询内容',
+      }}
+      topMenus={topMenus}
+    />
+  )
+}
+`}
       />
       <Copy
         title=""
@@ -74,6 +97,75 @@ const Comprehensive = () => {
           showBg: true,
           topMenus,
         }}
+        code={`
+export default () => {
+  ${menusCode1}
+  ${navPropsCode}
+  ${topMenusCodes}
+  return (
+    <Header
+      size="lg"
+      title="中国联通设计系统"
+      menus={menus}
+      search={{
+        type: 'primary',
+        placeholder: '输入查询内容',
+      }}
+      showBg
+      topMenus={topMenus}
+    />
+  )
+}
+`}
+      />
+      <Copy
+        title=""
+        secondTitle="2.综合类-带背景头部(高级搜索)"
+        headerProps={{
+          size: 'lg',
+          search: {
+            type: 'primary',
+            placeholder: '输入查询内容',
+            select: {
+              options,
+              onchange: (v: string) => {
+                console.log('=???', v);
+              },
+            },
+          },
+          title: '中国联通设计系统',
+          menus: menus1,
+          navProps,
+          showBg: true,
+          topMenus,
+        }}
+        code={`
+export default () => {
+  ${menusCode1}
+  ${navPropsCode}
+  ${topMenusCodes}
+  ${optionsCode}
+  return (
+    <Header
+      size="lg"
+      title="中国联通设计系统"
+      menus={menus}
+      search={{
+        type: 'primary',
+        placeholder: '输入查询内容',
+        select: {
+          options,
+          onchange: (v: string) => {
+            console.log('=???', v);
+          },
+        }
+      }}
+      showBg
+      topMenus={topMenus}
+    />
+  )
+}
+`}
       />
     </div>
   );

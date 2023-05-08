@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Icon from '@union-design/icon';
-import '@union-design/dropdown/lib/styles/index.css';
 import Dropdown from '@union-design/dropdown';
 
 const UserDrop = (props: any) => {

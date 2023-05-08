@@ -115,6 +115,7 @@ export const MainHeader = () => {
   const navProps = {
     data,
     mode: 'expand' as any,
+    size: 'xl' as any,
     keyExtractor: (i: Data) => `${i.id}`,
     nameExtractor: (i: Data) => i.name,
     childrenExtractor: (i: Data) => i.list,

@@ -1,10 +1,10 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Icon from '@union-design/icon';
 import SideNav from '@union-design/side-nav';
 import '@union-design/side-nav/lib/styles/index.css';
-import { MainHeader, PreviewHeader } from './header';
+import { MainHeader } from './header';
 import ActiveColor from '../images/active_color.png';
 import NormalColor from '../images/normal_color.png';
 import footerMail from '../images/footer-email.png';
@@ -12,6 +12,22 @@ import footerMail from '../images/footer-email.png';
 const Layout = (props: any) => {
   const [visible, setVisible] = useState(true);
   const [selectedKey, setKey] = useState('/');
+  const [openKeys, setOpen] = useState<string[]>([]);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setKey(location.pathname);
+    const headerOpen = ['/business', '/propaganda', '/comprehensive'];
+    const navOpen = ['/inline', '/expand', '/top'];
+    if (headerOpen.includes(location.pathname)) {
+      setOpen(['/header']);
+    }
+    if (navOpen.includes(location.pathname)) {
+      setOpen(['/nav']);
+    }
+  }, []);
+
   const data = [
     {
       id: '/',
@@ -26,33 +42,33 @@ const Layout = (props: any) => {
       name: '头部',
       list: [
         {
-          id: 'business',
+          id: '/business',
           name: '业务类',
         },
         {
-          id: 'propaganda',
+          id: '/propaganda',
           name: '宣传类',
         },
         {
-          id: 'comprehensive',
+          id: '/comprehensive',
           name: '综合类',
         },
       ],
     },
     {
-      id: '4',
+      id: '/nav',
       name: '导航',
       list: [
         {
-          id: 'inline',
+          id: '/inline',
           name: '内嵌式导航',
         },
         {
-          id: 'expand',
+          id: '/expand',
           name: '展开式导航',
         },
         {
-          id: 'top',
+          id: '/top',
           name: '顶部导航',
         },
       ],
@@ -62,9 +78,9 @@ const Layout = (props: any) => {
     '/': <Icon type="file-editing-line" style={{ fontSize: 18 }} />,
     '/color': <img src={selectedKey === '/color' ? ActiveColor : NormalColor} alt="" style={{ width: 18, height: 18 }} />,
     '/header': <Icon type="app-line" style={{ fontSize: 18 }} />,
-    4: <Icon type="list2-line" style={{ fontSize: 18 }} />,
+    '/nav': <Icon type="list2-line" style={{ fontSize: 18 }} />,
   };
-  const navigate = useNavigate();
+
   return (
     <div className="layout">
       <MainHeader />
@@ -73,6 +89,7 @@ const Layout = (props: any) => {
           style={{ height: 'calc(100vh - 140px)' }}
           mode="inline"
           data={data}
+          openKeys={openKeys}
           keyExtractor={(i) => `${i.id}`}
           nameExtractor={(i) => i.name}
           childrenExtractor={(i: any) => i.list}
@@ -84,6 +101,9 @@ const Layout = (props: any) => {
           onChangeSelectedKey={(key) => {
             navigate(key, { replace: true });
             setKey(key);
+          }}
+          onChangeOpenKeys={(key) => {
+            setOpen(key);
           }}
         />
         <div className="layoutContent" style={{ border: visible ? undefined : 'none' }}>

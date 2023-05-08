@@ -5,6 +5,7 @@ import AnswerPng from '../images/answer.png';
 import personPng from '../images/person.png';
 import AvatarPng from '../images/avatar.png';
 import Copy from '../copy';
+import { menusCode, optionsCode, navPropsCode } from '../code';
 
 type Data = { id: string; name: string; desc?: string; list?: Data[] };
 const data: Data[] = [
@@ -67,6 +68,24 @@ export const navProps = {
   onChangeSelectedKey: (key: string, data1: any) => console.log('topnav md onChangeSelectedKeys:', key, data1),
 };
 
+export const options = [
+  {
+    value: '1',
+    label: '全部',
+    key: '1',
+  },
+  {
+    value: '2',
+    label: '选项一',
+    key: '2',
+  },
+  {
+    value: '3',
+    label: '选项二',
+    key: '3',
+  },
+];
+
 const Business = () => {
   const menus1 = [
     <div key="2" className="menus-list">
@@ -85,38 +104,35 @@ const Business = () => {
       </UserDrop>
     </div>,
   ];
-  const options = [
-    {
-      value: '1',
-      label: '全部',
-      key: '1',
-    },
-    {
-      value: '2',
-      label: '选项一',
-      key: '2',
-    },
-    {
-      value: '3',
-      label: '选项二',
-      key: '3',
-    },
-  ];
 
   return (
     <div>
       <Copy
         title="业务类"
+        type="img"
         secondTitle="1.业务类-基础头部（配合侧部导航使用）"
         headerProps={{
           search: false,
           title: '中国联通设计系统',
           menus: menus1,
         }}
+        code={`
+export default () => {
+  ${menusCode}
+  return (
+    <Header
+      title="中国联通设计系统"
+      menus={menus}
+      search={false}
+    />
+  )
+}
+`}
       />
       <Copy
         title=""
         secondTitle="2.业务类-带搜索框头部（配合侧部导航使用）"
+        type="img"
         headerProps={{
           search: {
             placeholder: '输入查询内容',
@@ -124,21 +140,25 @@ const Business = () => {
           title: '中国联通设计系统',
           menus: menus1,
         }}
-      />
-      <Copy
-        title=""
-        secondTitle="3.业务类-基础头部-新消息（配合侧部导航使用）"
-        headerProps={{
-          search: {
+        code={`
+  export default () => {
+    ${menusCode}
+    return (
+      <Header
+        title="中国联通设计系统"
+        menus={menus}
+          search={{
             placeholder: '输入查询内容',
-          },
-          title: '中国联通设计系统',
-          menus: menus1,
-        }}
+          }}
+      />
+    )
+  }
+`}
       />
       <Copy
         title=""
-        secondTitle="4.业务类-高级搜索框头部（配合侧部导航使用）"
+        secondTitle="3.业务类-高级搜索框头部（配合侧部导航使用）"
+        type="img"
         headerProps={{
           search: {
             placeholder: '输入查询内容',
@@ -149,20 +169,54 @@ const Business = () => {
           title: '中国联通设计系统',
           menus: menus1,
         }}
+        code={`
+  export default () => {
+    ${menusCode}
+    ${optionsCode}
+    return (
+      <Header
+        title="中国联通设计系统"
+        menus={menus}
+          search={{
+            placeholder: '输入查询内容',
+            select: {
+              options,
+            }
+          }}
+      />
+    )
+  }
+`}
       />
       <Copy
         title=""
-        secondTitle="5.业务类-基础头部（配合顶部导航使用）"
+        type="img"
+        secondTitle="4.业务类-基础头部（配合顶部导航使用）"
         headerProps={{
           search: false,
           title: '中国联通设计系统',
           menus: menus1,
           navProps,
         }}
+        code={`
+  export default () => {
+    ${menusCode}
+    ${navPropsCode}
+    return (
+      <Header
+        title="中国联通设计系统"
+        menus={menus}
+        search={false}
+        navProps={navProps}
+      />
+    )
+  }
+`}
       />
       <Copy
         title=""
-        secondTitle="6.业务类-带搜索框头部（配合顶部导航使用）"
+        secondTitle="5.业务类-带搜索框头部（配合顶部导航使用）"
+        type="img"
         headerProps={{
           search: {
             placeholder: '输入查询内容',
@@ -171,10 +225,27 @@ const Business = () => {
           menus: menus1,
           navProps,
         }}
+        code={`
+  export default () => {
+    ${menusCode}
+    ${navPropsCode}
+    return (
+      <Header
+        title="中国联通设计系统"
+        menus={menus}
+        search={{
+          placeholder: '输入查询内容',
+        }}
+        navProps={navProps}
+      />
+    )
+  }
+`}
       />
       <Copy
         title=""
-        secondTitle="8.业务类-高级搜索框头部（配合顶部导航使用） "
+        secondTitle="6.业务类-高级搜索框头部（配合顶部导航使用） "
+        type="img"
         headerProps={{
           search: {
             placeholder: '输入查询内容',
@@ -186,6 +257,24 @@ const Business = () => {
           menus: menus1,
           navProps,
         }}
+        code={`
+  export default () => {
+    ${menusCode}
+    ${optionsCode}
+    ${navPropsCode}
+    return (
+      <Header
+        title="中国联通设计系统"
+        menus={menus}
+        search={{
+          placeholder: '输入查询内容',
+          options,
+        }}
+        navProps={navProps}
+      />
+    )
+  }
+`}
       />
     </div>
   );
