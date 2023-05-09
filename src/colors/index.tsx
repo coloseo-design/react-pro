@@ -210,7 +210,7 @@ const Colors = () => {
   return (
     <div>
       <div className="title2">色彩</div>
-      <div className="title3">色介</div>
+      <div className="title3">色阶</div>
       <img src={colorPng} style={{ width: 1100, height: 60, marginTop: 14 }} alt="" />
       <div className="title3">主题色</div>
       <div className="current">

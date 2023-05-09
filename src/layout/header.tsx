@@ -49,7 +49,7 @@ export const MainHeader = () => {
     },
     {
       id: '3',
-      name: 'web端组件库',
+      name: 'Web端组件库',
     },
     {
       id: '4',
@@ -57,7 +57,7 @@ export const MainHeader = () => {
     },
     {
       id: '5',
-      name: '页面模板pro',
+      name: '页面模板Pro',
       list: [
         {
           id: '78',

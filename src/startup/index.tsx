@@ -7,7 +7,7 @@ const StartUp = () => {
   return (
     <div>
       <div className="title1">快速使用</div>
-      <div className="start-des">react pro 对union-design组件库 header， top-nav, side-nav 或者@union-design/header, @union-design/top-nav, @union-design/side-nav 展示</div>
+      <div className="start-des">react pro 是对union-design组件库 header， top-nav, side-nav 或者@union-design/header, @union-design/top-nav, @union-design/side-nav 展示以及如何使用</div>
       <div className="start-line" />
       <div className="second-title">设置代理</div>
       <div className="title3">在项目里的.npmrc中设置</div>
