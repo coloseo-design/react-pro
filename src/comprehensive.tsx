@@ -18,7 +18,7 @@ const Comprehensive = () => {
     },
     <div key="3">
       <Icon type="me-line" style={{ fontSize: 20, marginRight: 8 }} />
-      岗位名称
+      岗位
     </div>,
     <div key="5">
       <UserDrop>

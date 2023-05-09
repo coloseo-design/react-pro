@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import Icon from '@union-design/icon';
 import UserDrop from './user-drop';
@@ -13,10 +14,11 @@ const Propaganda = () => {
       icon: <Icon type="remind-line" />,
       title: '自定义',
     },
-    <div key="3">
-      <Icon type="me-line" style={{ fontSize: 20, marginRight: 8 }} />
-      岗位名称
-    </div>,
+    {
+      key: '3',
+      icon: <Icon type="me-line" />,
+      title: '岗位',
+    },
     <div key="5">
       <UserDrop>
         <img src={AvatarPng} alt="" style={{ width: 24, height: 24 }} />

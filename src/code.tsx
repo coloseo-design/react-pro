@@ -32,8 +32,10 @@ const UserDrop = () => {
         setDown1(!v);
       }}
     >
-      {children}
-      <Icon style={{ fontSize: 14 }} type={down1 ? 'down2-line' : 'up2-line'} />
+      <div style={{ height: 24 }}>
+        {children}
+        <Icon style={{ fontSize: 14 }} type={down1 ? 'down2-line' : 'up2-line'} />
+      </div>
     </Dropdown>
   );
 }
@@ -70,7 +72,7 @@ const menus = [
   },
   <div key="3">
     <Icon type="me-line" style={{ fontSize: 20, marginRight: 8 }} />
-    岗位名称
+    岗位
   </div>,
   <div key="5">
     <UserDrop>

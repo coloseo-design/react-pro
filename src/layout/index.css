@@ -17,6 +17,11 @@
 
 .dropHeader .uni-drop-down-containter > div:hover {
   background-color: #EAEAEA;
+  color: #c20000;
+}
+.dropHeader .uniicon {
+  font-size: 16px;
+  margin-right: 4px;
 }
 .currentMenu {
   height: 24px;

@@ -34,8 +34,10 @@ const UserDrop = (props: any) => {
         setDown1(!v);
       }}
     >
-      {children}
-      <Icon style={{ fontSize: 14 }} type={down1 ? 'down2-line' : 'up2-line'} />
+      <div style={{ height: 24 }}>
+        {children}
+        <Icon style={{ fontSize: 14 }} type={down1 ? 'down2-line' : 'up2-line'} />
+      </div>
     </Dropdown>
   );
 };
